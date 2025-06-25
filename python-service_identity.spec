@@ -3,18 +3,19 @@
 %bcond_without	doc	# Sphinx documentation
 %bcond_with	tests	# unit tests (not included in release tarball)
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-service_identify.spec)
 
 Summary:	Service identity verification for pyOpenSSL & cryptography
 Summary(pl.UTF-8):	Weryfikacja tożsamości usługi dla modułów pyOpenSSL i cryptography
 Name:		python-service_identity
 Version:	21.1.0
-Release:	5
+Release:	6
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/service_identity/
 Source0:	https://files.pythonhosted.org/packages/source/s/service-identity/service-identity-%{version}.tar.gz
 # Source0-md5:	5e5c195d8fcedc72f9068be2ad9b5a13
+Patch0:		service-identity-intersphinx.patch
 URL:		https://pypi.org/project/service_identity/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
@@ -92,6 +93,7 @@ Dokumentacja API modułu Pythona service_identity.
 
 %prep
 %setup -q -n service-identity-%{version}
+%patch -P0 -p1
 
 %build
 %if %{with python2}

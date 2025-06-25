@@ -1,0 +1,13 @@
+--- service-identity-21.1.0/docs/conf.py.orig	2021-05-09 14:20:46.000000000 +0200
++++ service-identity-21.1.0/docs/conf.py	2025-06-25 21:00:45.645074575 +0200
+@@ -300,7 +300,7 @@ texinfo_documents = [
+ 
+ # Example configuration for intersphinx: refer to the Python standard library.
+ intersphinx_mapping = {
+-    "https://docs.python.org/3/": None,
+-    "https://pyopenssl.readthedocs.io/en/stable": None,
+-    "https://cryptography.io/en/stable/": None,
++    "https://docs.python.org/3/": ("python", None),
++    "https://pyopenssl.readthedocs.io/en/stable": ("pyopenssl", None),
++    "https://cryptography.io/en/stable/": ("cryptography", None),
+ }
